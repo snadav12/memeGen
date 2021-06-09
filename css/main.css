@@ -1,6 +1,5 @@
 body {
     margin: 0 auto;
-    height: 100vh;
 }
 
 
@@ -53,14 +52,13 @@ body {
 
 .meme-editor {
     background-color: #E3E3E3;
-    padding: 40px 50px 20px;
-    flex: 1;
+    padding: 40px 30px 20px;
 }
 
 .editor-continer {
-    grid-template-columns: repeat(5, 70px);
-    grid-template-rows: repeat(6, 70px);
-    grid-gap: 20px;
+    grid-template-columns: repeat(5, 60px);
+    grid-template-rows: repeat(6, 60px);
+    grid-gap: 10px;
 }
 
 canvas {
@@ -80,8 +78,8 @@ canvas {
 }
 
 .meme-editor button img {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
 }
 
 .meme-editor .btn-updown {
@@ -172,7 +170,7 @@ canvas {
     display: none;
 }
 
-@media (max-width:780px) {
+@media (max-width:880px) {
     .meme-editor {
         flex-direction: column;
     }

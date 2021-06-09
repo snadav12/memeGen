@@ -6,36 +6,49 @@ var gCtx;
 function onInit() {
     gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
+    renderMeme(0);
 
-    onAddImgToCanvas(getMemeImg(0));
-    onAddText(getMemeLine(0))
 }
 
-function onAddImgToCanvas(imgIdx) {
-    console.log();
-    var img = new Image()
-    img.src = `img/${imgIdx}.jpg`;
+function renderMeme(idx) {
+    var meme = getMeme(idx);
+    var img = new Image();
+    img.src = `img/${meme.selectedImgId}.jpg`;
+    var line = meme.lines[meme.selectedLineIdx];
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+        gCtx.lineWidth = 3;
+        gCtx.strokeStyle = 'black';
+        gCtx.fillStyle = line.color;
+        gCtx.font = `${line.size}px impact`;
+        gCtx.textAlign = line.align;
+        var posX = _getPosissionX(line.align);
+        var posY = _getPosissionY(meme.selectedLineIdx, line.size);
+        gCtx.fillText(line.txt, posX, posY);
+        gCtx.strokeText(line.txt, posX, posY);
     }
+    document.querySelector('.text-input').value = line.txt;
 }
 
-function onAddText(line) {
-    gCtx.lineWidth = 2;
-    gCtx.strokeStyle = 'black';
-    gCtx.fillStyle = line.color;
-    gCtx.font = `${line.size}px Arial`;
-    gCtx.textAlign = line.align;
-    var pos = _getPosission(line.align);
-    gCtx.fillText(line.txt, pos, line.size);
-    gCtx.strokeText(line.txt, pos, line.size);
 
-}
-
-function _getPosission(align) {
+function _getPosissionX(align) {
     var pos;
     if (align === 'left') pos = 0;
     else if (align === 'right') pos = 500;
     else if (align === 'center') pos = 250;
     return pos;
+}
+
+function _getPosissionY(lineIdx, size) {
+    console.log(lineIdx);
+    var pos;
+    if (lineIdx === 0) pos = 0 + size;
+    else if (lineIdx === 1) pos = 500;
+    else if (lineIdx > 1) pos = 250;
+    return pos;
+}
+
+function onChangLine(elTxt) {
+    changLineForIdx(0, elTxt.value);
+    renderMeme(0);
 }
