@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Gen</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="flex flex-column">
+    <header class="main-header flex align-items space-between">
+        <img src="img/editor/LOGO.png">
+        <div class="header-btn flex">
+            <button class="btn btn-gallery ">Gallery</button>
+            <h2 class="separator">|</h2>
+            <button class="btn btn-memes">Memes</button>
+            <h2 class="separator">|</h2>
+            <button class="btn btn-about">About</button>
+        </div>
+    </header>
+    <nav class="search-bar hidden"></nav>
+
+    <div class="meme-editor flex space-between">
+        <canvas id="meme-canvas" width="500" height="500"></canvas>
+        <div class="editor-continer grid">
+            <input type="impact" class="text-input" placeholder="enter meme text">
+            <button class="btn-updown"><img src="img/editor/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+            <button class="btn-add"><img src="img/editor/add.png"></button>
+            <button class="btn-del"><img src="img/editor/trash.png"></button>
+            <button class="btn-inc"><img src="img/editor/increase font - icon.png"></button>
+            <button class="btn-dec"><img src="img/editor/decrease font - icon.png"></button>
+            <button class="btn-all"><img src="img/editor/align-to-left.png"></button>
+            <button class="btn-alc"><img src="img/editor/center-text-alignment.png"></button>
+            <button class="btn-alr"><img src="img/editor/align-to-right.png"></button>
+            <button class="btn-txt-stroke"><img src="img/editor/text stroke.png"></button>
+            <button class="btn-color"><img src="img/editor/paint-board-and-brush.png"></button>
+        </div>
+    </div>
+
+    <footer class="main-footer flex align-items">
+        <img src="img/editor/LOGO.png">
+        <div>all rights reserved 2021</div>
+    </footer>
+
+    <script src="js/memeService.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
