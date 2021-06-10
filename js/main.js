@@ -7,8 +7,6 @@ function onInit() {
     gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
     gCurrMemeIdx = getCurrMeme();
-    renderMeme(gCurrMemeIdx);
-
 }
 
 function renderMeme(idx) {
@@ -60,7 +58,6 @@ function onSwicthLine() {
     else lineIdx++;
 
     changLineIdxForIdx(gCurrMemeIdx, lineIdx);
-
     renderMeme(gCurrMemeIdx);
 }
 
