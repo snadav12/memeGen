@@ -8,20 +8,57 @@ var gMeme = [{
         size: 40,
         align: 'center',
         color: 'white'
-    }]
+    }, ]
 }, ]
 
+function addMeme(ImgId) {
+    var meme = {
+        selectedImgId: ImgId,
+        selectedLineIdx: 0,
+        lines: []
+    }
+    gMeme.push(meme);
+}
 
-function getMeme(idx = 0) {
+function addLineToMeme(idx) {
+    var meme = gMeme[idx];
+    var line = {
+        txt: '',
+        size: 40,
+        align: 'center',
+        color: 'white'
+    }
+    meme.lines.push(line);
+}
+
+function changLinePosX(idx, pos) {
+    gMeme[idx].lines[gMeme[idx].selectedLineIdx].align = pos;
+}
+
+function incDecFont(idx, diff) {
+    gMeme[idx].lines[gMeme[idx].selectedLineIdx].size += diff;
+
+}
+
+
+function getMeme(idx) {
     var meme = gMeme[idx];
     return meme;
 }
 
-function getMemeLine(idx = 0) {
+function getMemeLineIdx(idx) {
     var meme = gMeme[idx];
-    return meme.lines[meme.selectedLineIdx];
+    return meme.selectedLineIdx;
+}
+
+function changLineIdxForIdx(idx, lineIdx) {
+    gMeme[idx].selectedLineIdx = lineIdx;
 }
 
 function changLineForIdx(idx, txt) {
-    gMeme[idx].lines[gMeme[idx].selectedLineIdx].txt = txt;
+    if (gMeme[idx].lines.length > 0) gMeme[idx].lines[gMeme[idx].selectedLineIdx].txt = txt;
+}
+
+function getCurrMeme() {
+    return gMeme.length - 1;
 }

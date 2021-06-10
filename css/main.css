@@ -30,7 +30,6 @@ body {
 
 .main-header .btn:hover {
     color: black;
-    box-shadow: 0px -5px 0px 0px black inset
 }
 
 .main-header .btn.active {
@@ -44,7 +43,19 @@ body {
 .search-bar {
     height: 100px;
     background-color: #E3E3E3;
-    margin-bottom: 40px;
+}
+
+
+/* gallary */
+
+.gallary {
+    padding: 40px 20px;
+    grid-template-columns: repeat(auto-fit, 200px);
+    gap: 10px;
+}
+
+.gallary img {
+    width: 100%;
 }
 
 
@@ -57,7 +68,7 @@ body {
 
 .editor-continer {
     grid-template-columns: repeat(5, 60px);
-    grid-template-rows: repeat(6, 60px);
+    grid-auto-rows: 60px;
     grid-gap: 10px;
 }
 
@@ -113,6 +124,16 @@ canvas {
 .meme-editor .btn-alr {
     grid-row: 3;
     grid-column: 5;
+}
+
+.meme-editor .btn-up {
+    grid-row: 4;
+    grid-column: 1;
+}
+
+.meme-editor .btn-down {
+    grid-row: 4;
+    grid-column: 2;
 }
 
 .meme-editor .btn-txt-stroke {

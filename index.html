@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="flex flex-column">
+<body class="flex flex-column" onload="onInit()">
     <header class="main-header flex align-items space-between">
         <img src="img/editor/LOGO.png">
         <div class="header-btn flex">
-            <button class="btn btn-gallery ">Gallery</button>
+            <button class="btn btn-gallery active" onclick="opanGallery()">Gallery</button>
             <h2 class="separator">|</h2>
             <button class="btn btn-memes">Memes</button>
             <h2 class="separator">|</h2>
@@ -21,21 +21,45 @@
         </div>
     </header>
     <nav class="search-bar hidden"></nav>
+    <div class="gallary grid">
+        <img src="img/1.jpg" onclick="onOpanEditor(1)">
+        <img src="img/2.jpg" onclick="onOpanEditor(2)">
+        <img src="img/3.jpg" onclick="onOpanEditor(3)">
+        <img src="img/4.jpg" onclick="onOpanEditor(4)">
+        <img src="img/5.jpg" onclick="onOpanEditor(5)">
+        <!-- <img src="img/6.jpg" onclick="onOpanEditor(6)">
+        <img src="img/7.jpg" onclick="onOpanEditor(7)">
+        <img src="img/8.jpg" onclick="onOpanEditor(8)">
+        <img src="img/9.jpg" onclick="onOpanEditor(9)">
+        <img src="img/10.jpg" onclick="onOpanEditor(10)">
+        <img src="img/11.jpg" onclick="onOpanEditor(11)">
+        <img src="img/12.jpg" onclick="onOpanEditor(12)">
+        <img src="img/13.jpg" onclick="onOpanEditor(13)">
+        <img src="img/14.jpg" onclick="onOpanEditor(14)">
+        <img src="img/15.jpg" onclick="onOpanEditor(15)">
+        <img src="img/16.jpg" onclick="onOpanEditor(16)">
+        <img src="img/17.jpg" onclick="onOpanEditor(17)">
+        <img src="img/18.jpg" onclick="onOpanEditor(18)"> -->
+    </div>
 
-    <div class="meme-editor flex space-between">
+    <div class="meme-editor flex space-between hidden">
         <canvas id="meme-canvas" width="500" height="500"></canvas>
         <div class="editor-continer grid">
             <input type="text" class="text-input" onchange="onChangLine(this)" placeholder="enter meme text">
-            <button class="btn-updown"><img src="img/editor/up-and-down-opposite-double-arrows-side-by-side.png"></button>
-            <button class="btn-add"><img src="img/editor/add.png"></button>
+            <button class="btn-updown" onclick="onSwicthLine()"><img
+                    src="img/editor/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+            <button class="btn-add" onclick="onAddLineToMeme()"><img src="img/editor/add.png"></button>
             <button class="btn-del"><img src="img/editor/trash.png"></button>
-            <button class="btn-inc"><img src="img/editor/increase font - icon.png"></button>
-            <button class="btn-dec"><img src="img/editor/decrease font - icon.png"></button>
-            <button class="btn-all"><img src="img/editor/align-to-left.png"></button>
-            <button class="btn-alc"><img src="img/editor/center-text-alignment.png"></button>
-            <button class="btn-alr"><img src="img/editor/align-to-right.png"></button>
-            <button class="btn-txt-stroke"><img src="img/editor/text stroke.png"></button>
-            <button class="btn-color"><img src="img/editor/paint-board-and-brush.png"></button>
+            <button class="btn-inc" onclick="onIncDecFont(1)"><img src="img/editor/increase font - icon.png"></button>
+            <button class="btn-dec" onclick="onIncDecFont(-1)"><img src="img/editor/decrease font - icon.png"></button>
+            <button class="btn-all" onclick="onChangLinePosX('left')"><img src="img/editor/align-to-left.png"></button>
+            <button class="btn-alc" onclick="onChangLinePosX('center')"><img src="img/editor/center-text-alignment.png"></button>
+            <button class="btn-alr" onclick="onChangLinePosX('right')"><img src="img/editor/align-to-right.png"></button>
+            <button class="btn-up" onclick="onChangLinePosY(-1)"><img src="img/editor/up.png"></button>
+            <button class="btn-down" onclick="onChangLinePosY(1)"><img src="img/editor/down.png"></button>
+
+            <button class="btn-txt-stroke hidden"><img src="img/editor/text stroke.png"></button>
+            <button class="btn-color hidden"><img src="img/editor/paint-board-and-brush.png"></button>
         </div>
     </div>
 
@@ -44,6 +68,7 @@
         <div>all rights reserved 2021</div>
     </footer>
 
+    <script src="js/storgeService.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/main.js"></script>
 </body>
