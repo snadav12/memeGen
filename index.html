@@ -27,7 +27,7 @@
         <img src="img/3.jpg" onclick="onOpanEditor(3)">
         <img src="img/4.jpg" onclick="onOpanEditor(4)">
         <img src="img/5.jpg" onclick="onOpanEditor(5)">
-        <!-- <img src="img/6.jpg" onclick="onOpanEditor(6)">
+        <img src="img/6.jpg" onclick="onOpanEditor(6)">
         <img src="img/7.jpg" onclick="onOpanEditor(7)">
         <img src="img/8.jpg" onclick="onOpanEditor(8)">
         <img src="img/9.jpg" onclick="onOpanEditor(9)">
@@ -39,8 +39,10 @@
         <img src="img/15.jpg" onclick="onOpanEditor(15)">
         <img src="img/16.jpg" onclick="onOpanEditor(16)">
         <img src="img/17.jpg" onclick="onOpanEditor(17)">
-        <img src="img/18.jpg" onclick="onOpanEditor(18)"> -->
+        <img src="img/18.jpg" onclick="onOpanEditor(18)">
     </div>
+
+
 
     <div class="meme-editor flex space-between hidden">
         <canvas id="meme-canvas" width="500" height="500"></canvas>
@@ -49,12 +51,14 @@
             <button class="btn-updown" onclick="onSwicthLine()"><img
                     src="img/editor/up-and-down-opposite-double-arrows-side-by-side.png"></button>
             <button class="btn-add" onclick="onAddLineToMeme()"><img src="img/editor/add.png"></button>
-            <button class="btn-del"><img src="img/editor/trash.png"></button>
+            <button class="btn-del" onclick="onRemoveLine()"><img src="img/editor/trash.png"></button>
             <button class="btn-inc" onclick="onIncDecFont(1)"><img src="img/editor/increase font - icon.png"></button>
             <button class="btn-dec" onclick="onIncDecFont(-1)"><img src="img/editor/decrease font - icon.png"></button>
             <button class="btn-all" onclick="onChangLinePosX('left')"><img src="img/editor/align-to-left.png"></button>
-            <button class="btn-alc" onclick="onChangLinePosX('center')"><img src="img/editor/center-text-alignment.png"></button>
-            <button class="btn-alr" onclick="onChangLinePosX('right')"><img src="img/editor/align-to-right.png"></button>
+            <button class="btn-alc" onclick="onChangLinePosX('center')"><img
+                    src="img/editor/center-text-alignment.png"></button>
+            <button class="btn-alr" onclick="onChangLinePosX('right')"><img
+                    src="img/editor/align-to-right.png"></button>
             <button class="btn-up" onclick="onChangLinePosY(-1)"><img src="img/editor/up.png"></button>
             <button class="btn-down" onclick="onChangLinePosY(1)"><img src="img/editor/down.png"></button>
 
@@ -68,7 +72,7 @@
         <div>all rights reserved 2021</div>
     </footer>
 
-    <script src="js/storgeService.js"></script>
+    <script src="js/storageService.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/main.js"></script>
 </body>

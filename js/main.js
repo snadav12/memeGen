@@ -21,8 +21,12 @@ function renderMeme(idx) {
 
 }
 
-function onChangLinePosY(diff) {
-    console.log(diff);
+function onChangLinePosY(diff) {}
+
+function onRemoveLine() {
+    console.log(gCurrMemeIdx);
+    removeLine(gCurrMemeIdx);
+    renderMeme(gCurrMemeIdx);
 }
 
 function onChangLinePosX(pos) {
@@ -42,7 +46,6 @@ function onAddLineToMeme() {
 }
 
 function onOpanEditor(imgId) {
-    // document.querySelector('.search-bar').classList.toggle('hidden');
     document.querySelector('.gallary').classList.toggle('hidden');
     document.querySelector('.meme-editor ').classList.toggle('hidden');
     document.querySelector('.btn-gallery').classList.toggle('active');
@@ -99,8 +102,6 @@ function onChangLine(elTxt) {
 
 function opanGallery() {
     document.querySelector('.meme-editor ').classList.add('hidden');
-    // document.querySelector('.search-bar').classList.remove('hidden');
     document.querySelector('.gallary').classList.remove('hidden');
     document.querySelector('.btn-gallery').classList.add('active');
-
 }

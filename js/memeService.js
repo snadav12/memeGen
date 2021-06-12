@@ -1,6 +1,7 @@
 'use strict';
+const KEY = 'Memes';
 
-var gMeme = [{
+var gMemes = [{
     selectedImgId: 5,
     selectedLineIdx: 0,
     lines: [{
@@ -10,6 +11,19 @@ var gMeme = [{
         color: 'white'
     }, ]
 }, ]
+saveToStorage(KEY, gMemes);
+
+function getMemes() {
+    return loadFromStorage(KEY);
+}
+
+function removeLine(idx) {
+    var lineIdx = gMemes[idx].selectedLineIdx;
+    gMemes[idx].lines.splice(lineIdx, 1);
+    gMemes[idx].selectedLineIdx = 0;
+    saveToStorage(KEY, gMemes);
+}
+
 
 function addMeme(ImgId) {
     var meme = {
@@ -17,11 +31,12 @@ function addMeme(ImgId) {
         selectedLineIdx: 0,
         lines: []
     }
-    gMeme.push(meme);
+    gMemes.push(meme);
+    saveToStorage(KEY, gMemes);
 }
 
 function addLineToMeme(idx) {
-    var meme = gMeme[idx];
+    var meme = gMemes[idx];
     var line = {
         txt: '',
         size: 40,
@@ -29,36 +44,37 @@ function addLineToMeme(idx) {
         color: 'white'
     }
     meme.lines.push(line);
+    saveToStorage(KEY, gMemes);
 }
 
 function changLinePosX(idx, pos) {
-    gMeme[idx].lines[gMeme[idx].selectedLineIdx].align = pos;
+    gMemes[idx].lines[gMemes[idx].selectedLineIdx].align = pos;
 }
 
 function incDecFont(idx, diff) {
-    gMeme[idx].lines[gMeme[idx].selectedLineIdx].size += diff;
+    gMemes[idx].lines[gMemes[idx].selectedLineIdx].size += diff;
 
 }
 
 
 function getMeme(idx) {
-    var meme = gMeme[idx];
+    var meme = gMemes[idx];
     return meme;
 }
 
 function getMemeLineIdx(idx) {
-    var meme = gMeme[idx];
+    var meme = gMemes[idx];
     return meme.selectedLineIdx;
 }
 
 function changLineIdxForIdx(idx, lineIdx) {
-    gMeme[idx].selectedLineIdx = lineIdx;
+    gMemes[idx].selectedLineIdx = lineIdx;
 }
 
 function changLineForIdx(idx, txt) {
-    if (gMeme[idx].lines.length > 0) gMeme[idx].lines[gMeme[idx].selectedLineIdx].txt = txt;
+    if (gMemes[idx].lines.length > 0) gMemes[idx].lines[gMemes[idx].selectedLineIdx].txt = txt;
 }
 
 function getCurrMeme() {
-    return gMeme.length - 1;
+    return gMemes.length - 1;
 }
